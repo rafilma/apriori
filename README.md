@@ -1,17 +1,11 @@
 # Laporan Proyek Machine Learning
-### Nama :
-### Nim :
-### Kelas :
+### Nama : Rafil Moehamad Alif
+### Nim : 211351116
+### Kelas : Malam B
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Didasarkan pada dataset di kaggle yang mengambil contoh kasus di warung sembako 
 
 ## Business Understanding
 
