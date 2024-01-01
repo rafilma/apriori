@@ -195,7 +195,9 @@ Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, probl
 - Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
 
 ## Deployment
-pada bagian ini anda memberikan link project yang diupload melalui streamlit share. boleh ditambahkan screen shoot halaman webnya.
+[Apriori]([https://dillinger.io/](https://apriori-uas.streamlit.app/))
+![image](https://github.com/rafilma/apriori/assets/148635738/55079ee0-1f04-4a81-b4d1-edf0c908ea23)
+
 
 **---Ini adalah bagian akhir laporan---**
 
