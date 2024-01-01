@@ -68,7 +68,7 @@ def return_item_df(item_antecedents):
     data["antecedents"] = data["antecedents"].apply(parse_list)
     data["consequents"] = data["consequents"].apply(parse_list)
 
-   filtered_data = data.loc[data["antecedents"] == item_antecedents]
+    filtered_data = data.loc[data["antecedents"] == item_antecedents]
 
     if not filtered_data.empty:
         first_row = list(filtered_data.iloc[0, :])
