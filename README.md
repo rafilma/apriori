@@ -40,8 +40,7 @@ Contoh: [Penjualan Toko Sukses Makmur Sentosa](https://www.kaggle.com/datasets/b
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
 Pertama kita persiapkan dataset nya terlebih dahulu, jika sudah bisa lanjut kedalam import library
-``bash
-import pandas as pd
+``import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -50,12 +49,9 @@ import networkx as nx
 import plotly.graph_objects as go
 from mlxtend.frequent_patterns import association_rules, apriori
 import warnings
-warnings.filterwarnings('ignore')
-``
+warnings.filterwarnings('ignore')``
 selanjutnya kita mount data tersebut
-``bash
-df=pd.read_csv('/content/project_uas/penjualan barang.csv')
-``
+``df=pd.read_csv('/content/project_uas/penjualan barang.csv')``
 maka ketika kita mengetik df akan muncul dataset yang kita pilih
 ``bash
 df.head()
