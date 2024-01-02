@@ -8,18 +8,20 @@ df = pd.read_csv("penjualan barang.csv")
 df['tanggal'] = pd.to_datetime(df['tanggal'], format= "%Y-%m-%d")
 
 df["month"] = df['tanggal'].dt.month
-df["day"] = df['tanggal'].dt.day
+df["day"] = df['tanggal'].dt.weekday
 
-df["month"].replace([i for i in range (1, 12 + 1)], ["January","February","March","April","May","June","July","August","September","October","November","December"], inplace=True)
+df["month"].replace([i for i in range(1, 12 + 1)], ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], inplace=True)
+df["day"].replace([i for i in range(6 + 1)], ['Monday', 'Tuesady', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], inplace=True)
+
 st.title ("Market Basket Analysis Dengan Apriori")
 
-def get_data(month = '', day = ''):
+def get_data(month='', day=''):
     data = df.copy()
     filtered = data.loc[
         (data["month"].str.contains(month.title())) &
-        (data["day"].astype(str).str.contains(day.title()))
+        (data["day"].str.contains(day.title()))
     ]
-    return filtered if filtered.shape[0] else "No result"
+    return filtered if not filtered.empty else "No result"
 
 def user_input_features():
     item = st.selectbox("Item", ['Beras','Daging','Gula','Migor','Tepung'])
