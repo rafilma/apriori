@@ -44,7 +44,7 @@ if type(data) != type("No result"):
     item_count_pivot = item_count.pivot_table(index='nama.pembeli', columns='nama.barang', values='Count', aggfunc='sum').fillna(0)
     item_count_pivot = item_count_pivot.applymap(encode)
 
-    support = 0.2
+    support = 0.02
     frequent_items = apriori(item_count_pivot, min_support=support, use_colnames=True)
 
     metric = "lift"
@@ -53,9 +53,11 @@ if type(data) != type("No result"):
     rules = association_rules(frequent_items, metric=metric, min_threshold=min_treshold)[["antecedents","consequents","support","confidence","lift"]]
     rules.sort_values('confidence', ascending=False, inplace=True)
     
-    st.write("Generated Association Rules:")
-    st.write(rules)
-
+    if not rules.empty:
+        st.write("Generated Association Rules:")
+        st.write(rules)
+    else:
+        st.warning("No association rules found.")
 
 def parse_list(x):
     x = list(x)
