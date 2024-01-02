@@ -52,7 +52,9 @@ if type(data) != type("No result"):
 
     rules = association_rules(frequent_items, metric=metric, min_threshold=min_treshold)[["antecedents","consequents","support","confidence","lift"]]
     rules.sort_values('confidence', ascending=False, inplace=True)
-
+    
+st.write("Generated Association Rules:")
+st.write(rules)
 
 
 def parse_list(x):
