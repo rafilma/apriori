@@ -11,15 +11,15 @@ df["month"] = df['tanggal'].dt.month
 df["day"] = df['tanggal'].dt.weekday
 
 df["month"].replace([i for i in range(1, 12 + 1)], ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], inplace=True)
-df["day"].replace([i for i in range(6 + 1)], ['Monday', 'Tuesady', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], inplace=True)
+df["day"].replace([i for i in range(6 + 1)], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], inplace=True)
 
 st.title ("Market Basket Analysis Dengan Apriori")
 
 def get_data(month='', day=''):
     data = df.copy()
     filtered = data.loc[
-        (data["month"].str.contains(month.title())) &
-        (data["day"].str.contains(day.title()))
+    (data["month"].str.lower().str.contains(month.lower())) &
+    (data["day"].str.lower().str.contains(day.lower()))
     ]
     return filtered if not filtered.empty else "No result"
 
