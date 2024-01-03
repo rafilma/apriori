@@ -223,7 +223,9 @@ rules.head(15)
 
 ## Deployment
 [Apriori](https://apriori-uas.streamlit.app/)
-![image](https://github.com/rafilma/apriori/assets/148635738/55079ee0-1f04-4a81-b4d1-edf0c908ea23)
+
+![image](https://github.com/rafilma/apriori/assets/148635738/238f2d4d-db90-4571-8e41-cfcbd16544e1)
+
 
 
 **---Ini adalah bagian akhir laporan---**
