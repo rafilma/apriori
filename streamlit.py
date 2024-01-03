@@ -80,8 +80,8 @@ if not data.empty:
     st.subheader("Recommendations:")
     result = return_item_df(item)
     if result[0] != "No result":
-        st.success(f"If a customer buys **{item}**, they may also buy **{result[1]}**.")
+        st.success(f"Jika Customer membeli **{item}**, pasti juga membeli **{result[1]}**.")
     else:
-        st.warning("No recommendations found for the selected item.")
+        st.warning("Tidak ada rekomendasi untuk item yang di pilih.")
 else:
     st.warning("No data available for the selected criteria. Please adjust your input.")
