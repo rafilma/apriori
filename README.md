@@ -195,7 +195,7 @@ Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, probl
 - Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
 
 ## Deployment
-[Apriori]((https://apriori-uas.streamlit.app/))
+[Apriori](https://apriori-uas.streamlit.app/)
 ![image](https://github.com/rafilma/apriori/assets/148635738/55079ee0-1f04-4a81-b4d1-edf0c908ea23)
 
 
