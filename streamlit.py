@@ -80,7 +80,7 @@ if not data.empty:
     st.subheader("Recommendations:")
     result = return_item_df(item)
     if result[0] != "No result":
-        st.success(f"If a customer buys **{item}**, they may also buy **{result[0]}**.")
+        st.success(f"If a customer buys **{item}**, they may also buy **{result[1]}**.")
     else:
         st.warning("No recommendations found for the selected item.")
 else:
