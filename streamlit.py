@@ -68,8 +68,8 @@ def parse_list(x):
 def return_item_df(item_antecedents):
     data_filtered = rules[(rules["antecedents"].apply(lambda x: item_antecedents in x))]
     if not data_filtered.empty:
-        antecedent = parse_list(data_filtered['antecedent'].value[0])
-        consequent = parse_list(data_filtered['consequent'].value[0])
+        antecedent = parse_list(data_filtered['antecedents'].values[0])
+        consequent = parse_list(data_filtered['consequents'].values[0])
         return [antecedent, consequent]
     else:
         return ["No result", "No result"]
