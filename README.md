@@ -175,24 +175,51 @@ df.head()
 
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Pertama setelah menyatukan kolom nya, kita hitung jumlah pembelian barangnya
+```bash
+item_count = df.groupby(["nama.pembeli", "nama.barang"])["nama.barang"].count().reset_index(name="Count")
+```
+Selanjutnya kita buat item pivot
+```bash
+item_count_pivot = item_count.pivot_table(index='nama.pembeli', columns='nama.barang', values='Count', aggfunc='sum').fillna(0)
+print("ukuran dataset : ", item_count_pivot.shape)
+item_count_pivot.head(5)
+```
+Kita rubah tipe nya menjadi integer terlebih dahulu
+```bash
+item_count_pivot = item_count_pivot.astype("int32")
+item_count_pivot.head()
+```
+Jika sudah, kita lakukan encoder untuk merubah status pembelian
+```bash
+def encode(x):
+    if x <=0:
+        return 0
+    elif x >= 1:
+        return 1
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+item_count_pivot = item_count_pivot.applymap(encode)
+item_count_pivot.head()
+```
+Maka barang yang di beli akan berubah menjadi 1 dan tidak akan menjadi 0
+Selanjutnya kita tentukan nilai support nya dan masukan algoritma apriori nya
+```bash
+support = 0.01
+frequent_items = apriori(item_count_pivot, min_support=support, use_colnames=True)
+frequent_items.sort_values("support", ascending=False).head(10)
+```
+Terakhir kita tentukan rules nya
+```bash
+metric = "lift"
+min_treshold = 1
 
-## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+rules = association_rules(frequent_items, metric=metric, min_threshold=min_treshold)[["antecedents","consequents","support","confidence","lift"]]
+rules.sort_values('confidence', ascending=False,inplace=True)
+rules.head(15)
+```
+![Screenshot (97)](https://github.com/rafilma/apriori/assets/148635738/68dd7ff8-ff9a-4ab2-9727-deef9acb8573)
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
 
 ## Deployment
 [Apriori](https://apriori-uas.streamlit.app/)
