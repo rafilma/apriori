@@ -98,12 +98,14 @@ ax.set_title(label = "Penjualan Barang", fontsize = 24,color='Blue')
 plt.axis('off')
 ```
 ![image](https://github.com/rafilma/apriori/assets/148635738/3618e1c0-4ef9-4a5d-9fd3-ae3dd3cfd24c)
- Maka kita bisa lihat persentase penjualan barang.
+<br>
+Maka kita bisa lihat persentase penjualan barang.
 ```bash
 sns.countplot(x=df['nama.barang'], data=df)
 plt.show()
 ```
 ![image](https://github.com/rafilma/apriori/assets/148635738/4a59bbce-cec8-4ad0-ac05-6c34e90d14cd)
+<br>
 kita bisa lihat dalam tampilan Chart nya
 
 selanjutnya kita bisa melihat top customer
@@ -112,7 +114,7 @@ sns.countplot(x=df['nama.pembeli'], data=df)
 plt.show()
 ```
 ![image](https://github.com/rafilma/apriori/assets/148635738/ac139a43-147a-4e70-bbfe-8cdd95f05aa2)
-
+<br>
 Karena jumlah customernya terlalu banyak dan visualisasi susah terbaca, maka kita coba pecah menjadi top 10 saja.
 
 ```bash
@@ -142,7 +144,7 @@ df["year"] = df['tanggal'].dt.year
 df.head()
 ```
 ![Screenshot (86)](https://github.com/rafilma/apriori/assets/148635738/bd0840e9-521c-4590-a4f2-0262d3375772)
-
+<br>
 Terlihat kolom tanggal sudah terpecah
 sekarang kita bisa menentukan penjualan berdasarkan tanggal
 ```bash
